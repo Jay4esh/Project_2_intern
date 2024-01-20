@@ -1,0 +1,21 @@
+
+<div class="interactive-container">
+  <h1>SmartFlow!</h1>
+  <p> Smartflow helps in maintaining the hierarchical balance and ease in the communication </p>
+</div>
+<% if user_signed_in? %>
+<div class="user-info">
+  Logged in as <%= current_user.email %>
+  <br/>
+  <br/>
+  <%= link_to 'Edit profile', edit_user_registration_path, class: 'profile-link' %>
+  <br/>
+  <br/>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'logout-link' %>
+</div>
+<% end %>
+
+  <footer class="footer">
+    <p>&copy; 2024 Your App. All rights reserved.</p>
+  </footer>
+</div>

@@ -1,0 +1,52 @@
+<%= form_with(model: businesspartner) do |form| %>
+  <% if businesspartner.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(businesspartner.errors.count, "error") %> prohibited this businesspartner from being saved:</h2>
+
+      <ul>
+        <% businesspartner.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :customer_code, style: "display: block" %>
+    <%= form.text_field :customer_code %>
+  </div>
+
+  <div>
+    <%= form.label :customer_name, style: "display: block" %>
+    <%= form.text_field :customer_name %>
+  </div>
+
+  <div>
+    <%= form.label :corporate_number, style: "display: block" %>
+    <%= form.number_field :corporate_number %>
+  </div>
+
+  <div>
+    <%= form.label :invoice_number, style: "display: block" %>
+    <%= form.number_field :invoice_number %>
+  </div>
+
+  <div>
+    <%= form.label :postal_code, style: "display: block" %>
+    <%= form.number_field :postal_code %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :telephone_number, style: "display: block" %>
+    <%= form.number_field :telephone_number %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

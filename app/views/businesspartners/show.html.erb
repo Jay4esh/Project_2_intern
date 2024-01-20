@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @businesspartner %>
+
+<div>
+<% if can? :update, @businesspartner %><%= link_to "Edit this businesspartner", edit_businesspartner_path(@businesspartner) %> <% end %>
+  <%= link_to "Back to businesspartners", businesspartners_path %>
+
+  <% if can? :update, @businesspartner %><%= button_to "Destroy this businesspartner", @businesspartner, method: :delete %> <% end %>
+</div>

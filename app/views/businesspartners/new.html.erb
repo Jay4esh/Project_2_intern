@@ -1,0 +1,48 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    color: #3498db;
+  }
+
+  #new-businesspartner-container {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #back-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #back-link a {
+    text-decoration: none;
+    color: #3498db;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+  }
+
+  #back-link a:hover {
+    background-color: #e0e0e0;
+  }
+</style>
+
+<div id="new-businesspartner-container">
+  <h1>New Businesspartner</h1>
+
+  <%= render "form", businesspartner: @businesspartner %>
+
+  <div id="back-link">
+    <%= link_to "Back to businesspartners", businesspartners_path %>
+  </div>
+</div>

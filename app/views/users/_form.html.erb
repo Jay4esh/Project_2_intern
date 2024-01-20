@@ -1,0 +1,49 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+  <%= form.label :ROLE %><br>
+  <%= form.collection_select :role_id, Role.where(role_name: ['admin', 'normal user']), :id, :role_name %>
+</div>  
+  <div>
+    <%= form.label :position, style: "display: block" %>
+    <%= form.text_field :position %>
+  </div>  
+
+  <div>
+  <%= form.label :Email, style: "display: block" %>
+  <%= form.email_field :email %>
+</div>
+
+  
+  <div>
+  <%= form.label :Password, style: "display: block" %>
+  <%= form.password_field :password %>
+</div>
+
+
+  <div class="field">
+    <%= form.label :Company %>
+    <br/>
+    <%= form.collection_select :company_id, Company.all, :id, :company_name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div> 
+<% end %>

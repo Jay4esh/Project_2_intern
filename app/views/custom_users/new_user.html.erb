@@ -1,0 +1,25 @@
+<!-- app/views/custom_users/new_user.html.erb -->
+<h2>New User</h2>
+
+<%= form_with(model: @user, url: create_custom_user_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.text_field :company_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create User" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Users", users_path %>

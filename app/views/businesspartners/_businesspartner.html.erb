@@ -1,0 +1,55 @@
+<style>
+  #businesspartner-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  #businesspartner-table th,
+  #businesspartner-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  #businesspartner-table th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<div id="<%= dom_id businesspartner %>">
+  <table id="businesspartner-table">
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td><strong>Customer code:</strong></td>
+      <td><%= businesspartner.customer_code %></td>
+    </tr>
+    <tr>
+      <td><strong>Customer name:</strong></td>
+      <td><%= businesspartner.customer_name %></td>
+    </tr>
+    <tr>
+      <td><strong>Corporate number:</strong></td>
+      <td><%= businesspartner.corporate_number %></td>
+    </tr>
+    <tr>
+      <td><strong>Invoice number:</strong></td>
+      <td><%= businesspartner.invoice_number %></td>
+    </tr>
+    <tr>
+      <td><strong>Postal code:</strong></td>
+      <td><%= businesspartner.postal_code %></td>
+    </tr>
+    <tr>
+      <td><strong>Address:</strong></td>
+      <td><%= businesspartner.address %></td>
+    </tr>
+    <tr>
+      <td><strong>Telephone number:</strong></td>
+      <td><%= businesspartner.telephone_number %></td>
+    </tr>
+  </table>
+</div>

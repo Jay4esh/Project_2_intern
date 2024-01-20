@@ -1,0 +1,47 @@
+<style>
+  #header {
+    background-color: grey;
+    color: black;
+    padding: 10px;
+    text-align: center;
+  }
+
+  #navigation {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #navigation a {
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  #navigation a:hover {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+
+  #users {
+    margin-top: 20px;
+  }
+</style>
+
+<div id="header">
+  <h1>Users</h1>
+</div>
+
+<div id="navigation">
+  <%= link_to "New User", new_user_path %>
+</div>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,83 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    color: #3498db;
+  }
+
+  #businesspartners-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #notice {
+    color: green;
+    text-align: center;
+  }
+
+  #search-form-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #businesspartners-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #businesspartners-list li {
+    margin-bottom: 20px;
+  }
+
+  #new-businesspartner-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #new-businesspartner-link a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+
+  #new-businesspartner-link a:hover {
+    background-color: #2980b9;
+  }
+</style>
+
+<div id="businesspartners-container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Businesspartners</h1>
+
+  <%= render 'businesspartners/search_form' %>
+
+  <div id="new-businesspartner-link">
+    <%= link_to "New businesspartner", new_businesspartner_path %>
+    
+  </div>
+
+  <div id="businesspartners">
+    <ul id="businesspartners-list">
+      <% @businesspartners.each do |businesspartner| %>
+        <li>
+          <%= render businesspartner %>
+        </li>
+        <%= link_to "Show Details", businesspartner_path(businesspartner) %>
+      <% end %>
+    </ul>
+  </div>
+</div>
