@@ -76,3 +76,11 @@ gem 'cancancan', '~> 1.15.0'
 gem 'pry'
 gem 'ransack'
 
+
+gem "state_machines-activerecord", "~> 0.9.0"
+
+gem "aasm", "~> 5.0"
+
+gem "rails_best_practices", "~> 1.23"
+
+gem "brakeman", "~> 6.1"

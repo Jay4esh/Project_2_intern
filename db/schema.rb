@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_17_083435) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_21_084442) do
   create_table "businesspartners", force: :cascade do |t|
     t.string "customer_code"
     t.string "customer_name"
@@ -29,6 +29,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_083435) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "description"
+    t.decimal "amount"
+    t.date "date"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "source"
+    t.string "destination"
+    t.string "mode_of_transport"
+    t.string "status", default: "initiator"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "expense_type"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -59,5 +76,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_083435) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "expenses", "users"
   add_foreign_key "users", "roles"
 end

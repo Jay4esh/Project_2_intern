@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :role
   belongs_to :company
+  has_many :expenses
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

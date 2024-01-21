@@ -1,0 +1,30 @@
+<%= form_with model: @expense, local: true do |form| %>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+    
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+    
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+    
+    <% if @expense.is_travel? %>
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date %>
+      
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date %>
+      
+      <%= form.label :source %>
+      <%= form.text_field :source %>
+      
+      <%= form.label :destination %>
+      <%= form.text_field :destination %>
+      
+      <%= form.label :Transportation_mode %>
+      <%= form.text_field :mode_of_transport %>
+    <% end %>
+    
+    <%= form.submit "Submit Expense" %>
+  <% end %>
+  

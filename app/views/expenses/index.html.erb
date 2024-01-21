@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Management</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: lightblue;
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      border-collapse: collapse;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: black;
+      color: #fff;
+    }
+
+    tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .actions a, .new-expense-button {
+      display: inline-block;
+      padding: 10px 15px;
+      text-decoration: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions a:hover, .new-expense-button:hover {
+      background-color: #297fb8;
+    }
+
+    .new-expense-link {
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Expense Management</h1>
+  </header>
+
+  <div class="new-expense-link">
+    <%= link_to 'Add Expense', new_expense_path, class: 'new-expense-button' %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.description %></td>
+          <td><%= expense.amount %></td>
+          <td><%= expense.status %></td>
+          <td class="actions">
+            <%= link_to 'Show', expense %>
+            <%= link_to 'Edit', edit_expense_path(expense) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Regular Expense', new_type_expenses_path(type: 'regular'), class: 'btn btn-primary' %>
+<%= link_to 'New Travel Expense', new_type_expenses_path(type: 'travel'), class: 'btn btn-primary' %>
+
+
+ 
+</body>
+</html>

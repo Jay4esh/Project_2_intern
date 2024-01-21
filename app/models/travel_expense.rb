@@ -1,0 +1,2 @@
+class TravelExpense < Expense
+end

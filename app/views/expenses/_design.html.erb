@@ -1,0 +1,88 @@
+<div class="flow-container">
+  <div class="flow-box initiator <%= 'active' if @expense.initiator? %>">
+    <p>Initiator</p>
+  </div>
+  <div class="arrow"></div>
+  <div class="flow-box leader <%= 'active' if @expense.leader? %>">
+    <p>Leader</p>
+  </div>
+  <div class="arrow"></div>
+  <div class="flow-box manager <%= 'active' if @expense.manager? %>">
+    <p>Manager</p>
+  </div>
+  <div class="arrow"></div>
+  <div class="flow-box hr <%= 'active' if @expense.hr? %>">
+    <p>HR</p>
+  </div>
+  <div class="arrow"></div>
+  <div class="flow-box accountant <%= 'active' if @expense.accountant? %>">
+    <p>Accountant</p>
+  </div>
+  <div class="arrow"></div>
+  <div class="flow-box approved <%= 'active' if @expense.approved? %>">
+    <p>Approved</p>
+  </div>
+</div>
+
+
+<div class="expense-details-container">
+  <h1>Expense Details</h1>
+
+  <table>
+    <tr>
+      <td class="label"><strong>Description:</strong></td>
+      <td><%= @expense.description %></td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Amount:</strong></td>
+      <td><%= @expense.amount %></td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Date:</strong></td>
+      <td><%= @expense.date %></td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Start Date:</strong></td>
+      <td><%= @expense.start_date %></td>
+    </tr>
+    <tr>
+      <td class="label"><strong>End Date:</strong></td>
+      <td><%= @expense.end_date %></td>
+    </tr>
+   
+  <tr>
+  <td class="label"><strong>Source:</strong></td>
+  <td><%= @expense.source %></td>
+  </tr>
+
+  <tr>
+  <td class="label"><strong>Destination:</strong></td>
+  <td><%= @expense.destination %></td>
+  </tr>
+
+ <tr>
+ <td class="label"><strong>Transportation_mode:</strong></td>
+ <td><%= @expense.mode_of_transport %></td>
+ </tr>
+
+    <tr>
+      <td class="label"><strong>Status:</strong></td>
+      <td><%= @expense.status %></td>
+    </tr>
+  </table>
+
+  <% if @expense.submitted? %>
+    <div class="action-buttons">
+      <%= link_to 'Approve', approve_expense_path(@expense), method: :put, class: 'button' %>
+      <%= link_to 'Reject', reject_expense_path(@expense), method: :put, class: 'button' %>
+    </div>
+  <% end %>
+
+  <div class="action-buttons">
+    <%= link_to 'Edit', edit_expense_path(@expense), class: 'button' %>
+    <%= link_to 'Back', expenses_path, class: 'button' %>
+  </div>
+  <br/>
+  <%= button_to 'Destroy', @expense, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+

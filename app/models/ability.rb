@@ -10,7 +10,7 @@ class Ability
       elsif user.role_id == 3
         can :manage, :all
       elsif user.role_id == 4
-        can :read
+        can :read, Businesspartner
       else 
         can :read, :all
       end

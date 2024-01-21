@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Expense</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: lightblue;
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .edit-expense-container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .actions a {
+      display: inline-block;
+      padding: 10px 15px;
+      text-decoration: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions a:hover {
+      background-color: #297fb8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Edit Expense</h1>
+  </header>
+
+  <div class="edit-expense-container">
+    <%= render 'form' %>
+
+    <div class="actions">
+      <%= link_to 'Show', @expense %>
+      <%= link_to 'Back', expenses_path %>
+    </div>
+  </div>
+
+</body>
+</html>

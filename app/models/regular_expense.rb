@@ -1,0 +1,2 @@
+class RegularExpense < Expense
+end
